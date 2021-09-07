@@ -4,8 +4,14 @@ The guide is to provide an introduction to the user about rg_parser python scrip
 > Dependencies  
 >> rg_parser uses [ripgrep](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md "The fastest search") underneath to make search in directory
 
-- [Use Case](#use-case)
-- [Usage](#usage)
+- [User Guide](#user-guide)
+    - [Use-Case](#use-case)
+  - [Setup](#setup)
+    - [Pre-Requisites](#pre-requisites)
+    - [Validation](#validation)
+    - [Usage](#usage)
+  - [Troubleshooting](#troubleshooting)
+    - [Windows](#windows)
 ### Use-Case
 - Allows documentation of logs pattern in configuration, making search consistent and reusable
 - Allows documentation of logs pattern for cases. You can keep versioning *.ini file as you progress
@@ -25,7 +31,7 @@ The guide is to provide an introduction to the user about rg_parser python scrip
    ```
 2. 
 
-## Usage {#Usage}
+### Usage
 ```
 usage: CARA Logs Analysis [-h] [--config CONFIG] [--analysis ANALYSIS]
 
