@@ -1,21 +1,31 @@
-# Project Summary
-The python script is used to generate analysis.bat/sh script based on configuration provided by user. The script will be using ripgrep to search patterns described in logs and generate various [section_name]_parser.log file.
+# User Guide  
+The guide is to provide an introduction to the user about rg_parser python script, used to generate analysis.bat/sh script based on configuration provided by user.  
 
-### USE CASE
-- Allows documentation of logs pattern in configuration, making search consistent and repetable
-- Allows documentation of logs pattern for each case, just versioned the INI file
-- Helps in knowledge transfer among workers
+> Dependencies  
+>> rg_parser uses [ripgrep](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md "The fastest search") underneath to make search in directory
+
+- [Use Case](#Use-Case)
+- [Usage](#Usage)
+### USE CASE(#Use-Case)
+- Allows documentation of logs pattern in configuration, making search consistent and reusable
+- Allows documentation of logs pattern for cases. You can keep versioning *.ini file as you progress
+- Helps in knowledge transfer among workers. The *.ini file generate can be used by other workers with same setup
   
-## ToDo
-
-## Pre-Requisites
-- On Windows/Linux Install Python 3.6 or higher
-- Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
-  - For windows one can download precompiled binaries and set the PATH variable
 ## Setup
 
+### Pre-Requisites
+- On Windows/Linux Install Python 3.6 or higher
+- Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
+  - **Note** :On Windows, one can download [precompiled binaries](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) and set the environment PATH variable 
 
-## Usage
+### Validation
+1. Validate python is installed: 
+   ```
+   $python -V
+   ```
+2. 
+
+## Usage {#Usage}
 ```
 usage: CARA Logs Analysis [-h] [--config CONFIG] [--analysis ANALYSIS]
 
