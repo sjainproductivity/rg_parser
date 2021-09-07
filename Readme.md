@@ -11,7 +11,7 @@
 }
 </style> -->
 
-<link href="https://github.com/sjainproductivity/github-css/blob/main/rg_parser.css" rel="stylesheet">
+<link href="readme.css" rel="stylesheet">
 
 <div id="container">
 
