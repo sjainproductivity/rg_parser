@@ -1,35 +1,60 @@
+
+<!-- <style>
+#container{
+    display:flex;
+    flex-direction: row;
+    margin:10px;
+    padding:10px;
+}
+#main-content {
+  background:white;
+}
+</style> -->
+
+<link href="https://github.com/sjainproductivity/github-css/blob/main/rg_parser.css" rel="stylesheet">
+
+<div id="container">
+
+<div id="side-menu">
+
+### Table Of Contents
+ * [Use-Case](#use-case)
+ * [Setup](#setup)
+    * [Pre-Requisites](#pre-requisites)
+    * [Validation](#validation)
+    * [Usage](#usage)
+ * [Troubleshooting](#troubleshooting)
+    * [Windows](#windows)
+
+</div>
+
+<div id="main-content">
+
 # User Guide  
 The guide is to provide an introduction to the user about rg_parser python script, used to generate analysis.bat/sh script based on configuration provided by user.  
 
 > Dependencies  
 >> rg_parser uses [ripgrep](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md "The fastest search") underneath to make search in directory
+---  
 
-- [User Guide](#user-guide)
-    - [Use-Case](#use-case)
-  - [Setup](#setup)
-    - [Pre-Requisites](#pre-requisites)
-    - [Validation](#validation)
-    - [Usage](#usage)
-  - [Troubleshooting](#troubleshooting)
-    - [Windows](#windows)
 ### Use-Case
 - Allows documentation of logs pattern in configuration, making search consistent and reusable
 - Allows documentation of logs pattern for cases. You can keep versioning *.ini file as you progress
 - Helps in knowledge transfer among workers. The *.ini file generate can be used by other workers with same setup
+
+
+### Setup
+    * Pre-Requisites
+      - On Windows/Linux Install Python 3.6 or higher
+      - Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
+        - **Note** :On Windows, one can download [precompiled binaries](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) and set the environment PATH variable 
   
-## Setup
-
-### Pre-Requisites
-- On Windows/Linux Install Python 3.6 or higher
-- Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
-  - **Note** :On Windows, one can download [precompiled binaries](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) and set the environment PATH variable 
-
-### Validation
-1. Validate python is installed: 
-   ```
-   $python -V
-   ```
-2. 
+    ### Validation
+      1. Validate python is installed: 
+      ```
+      $python -V
+      ```
+      1. 
 
 ### Usage
 ```
@@ -77,3 +102,7 @@ optional arguments:
 
 ### Windows
 - 'rg' is not recognized as an internal or external command : The rg.exe is not configured in PATH.
+
+</div>
+
+</div>
