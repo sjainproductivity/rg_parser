@@ -4,9 +4,9 @@ The guide is to provide an introduction to the user about rg_parser python scrip
 > Dependencies  
 >> rg_parser uses [ripgrep](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md "The fastest search") underneath to make search in directory
 
-- [Use Case](#Use-Case)
-- [Usage](#Usage)
-### USE CASE(#Use-Case)
+- [Use Case](#use-case)
+- [Usage](#usage)
+### Use-Case
 - Allows documentation of logs pattern in configuration, making search consistent and reusable
 - Allows documentation of logs pattern for cases. You can keep versioning *.ini file as you progress
 - Helps in knowledge transfer among workers. The *.ini file generate can be used by other workers with same setup
