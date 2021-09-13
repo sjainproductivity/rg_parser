@@ -1,22 +1,3 @@
-
-<!-- <style>
-#container{
-    display:flex;
-    flex-direction: row;
-    margin:10px;
-    padding:10px;
-}
-#main-content {
-  background:white;
-}
-</style> -->
-
-<link href="readme.css" rel="stylesheet">
-
-<div id="container">
-
-<div id="side-menu">
-
 ### Table Of Contents
  * [Use-Case](#use-case)
  * [Setup](#setup)
@@ -25,10 +6,9 @@
     * [Usage](#usage)
  * [Troubleshooting](#troubleshooting)
     * [Windows](#windows)
+  * [Report Issues](#report-issues)
 
-</div>
 
-<div id="main-content">
 
 # User Guide  
 The guide is to provide an introduction to the user about rg_parser python script, used to generate analysis.bat/sh script based on configuration provided by user.  
@@ -42,19 +22,20 @@ The guide is to provide an introduction to the user about rg_parser python scrip
 - Allows documentation of logs pattern for cases. You can keep versioning *.ini file as you progress
 - Helps in knowledge transfer among workers. The *.ini file generate can be used by other workers with same setup
 
-
+---  
 ### Setup
-    * Pre-Requisites
+#### Pre Requisites
       - On Windows/Linux Install Python 3.6 or higher
       - Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
         - **Note** :On Windows, one can download [precompiled binaries](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) and set the environment PATH variable 
+      - Clone the repository rg_parser, i.e. git clone https://github.com/sjainproductivity/rg_parser.git or download the zip
   
-    ### Validation
-      1. Validate python is installed: 
-      ```
-      $python -V
-      ```
-      1. 
+#### Validation
+    1. Validate python is installed: 
+        $python -V
+    2. Validate ripgrep is installed:
+        $rg -V
+      
 
 ### Usage
 ```
@@ -98,11 +79,10 @@ optional arguments:
 - Linking 
 
 
-## Troubleshooting
+### Troubleshooting
 
-### Windows
+#### Windows
 - 'rg' is not recognized as an internal or external command : The rg.exe is not configured in PATH.
 
-</div>
-
-</div>
+### Report Issues
+- [rg_parser_issues](https://github.com/sjainproductivity/rg_parser/issues)
