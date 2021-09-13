@@ -11,6 +11,8 @@ The guide is to provide an introduction to the user about rg_parser python scrip
     * [Pre-Requisites](#pre-requisites)
     * [Validation](#validation)
     * [Usage](#usage)
+* [Search Patterns](#search-patterns)
+* [Self Documented INI](#self-documented-ini)
  * [Troubleshooting](#troubleshooting)
     * [Windows](#windows)
  * [Report an Issue](#report-an-issue)
@@ -27,6 +29,7 @@ The guide is to provide an introduction to the user about rg_parser python scrip
  2. Install ripgrep for appropriate OS [ripgrep Installation](https://github.com/BurntSushi/ripgrep#installation)
   - **Note** :On Windows, one can download [precompiled binaries](https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0) and set the environment PATH variable 
  3. Clone the [rg_parser repository](https://github.com/sjainproductivity/rg_parser.git) or download the zip
+ 4. Set PATH to contain python and rg
   
  ### Validation
  1. Validate python is installed: 
@@ -34,7 +37,7 @@ The guide is to provide an introduction to the user about rg_parser python scrip
  2. Validate ripgrep is installed:
     $rg -V
       
-
+---  
 ## Usage
 1. Generate the *.INI file if not there
 2. Use the *.INI file to generate the analysis.(bat|sh) file
@@ -83,11 +86,44 @@ $python -c/--config CONFIG_FILE_NAME.ini
 ```
     $analysis.sh SEARCH_FOLDER OUTPUT_DIR
 ```
+---  
+![Alt Text](.\rg_parser.gif)
 
+---  
+## Search Pattern
+The INI file contains script sections and user defined sections. The script will generate section_parser.log file for each section defined in INI file except for default and search_filter.
+
+ ### Search Filter patterns
+ [search_filter] section is used to narrow the search to specific file for specific sections
+ 1. __"error=\*.\*"__ : It will look for patterns defined in error section in all files
+ 2. __"error={error.log,error.log\.[1,3]}"__ : It will look for patterns in error section in files error.log, error.log.1 and error.log.3
+ 3. __"error={error.log,error.log\.[1-3]}"__ : It will look for patterns in error section in files error.log, error.log.1, error.log.2 and error.log.3
+
+ ### Section Search patterns
+ It is userdefined sections used to search for specific patterns in files. Please use reg-ex to filter your search.
+ 1. ERROR = "^2021-08-24.\*ERROR.\*" : This pattern will search for ERROR|error (ignore case = True) on date 2021-08-24
+ 2. "node stopped"=".*gsi_server_run.\*\| GSI server stopping.\*" : This pattern will search for the mentioned specific pattern
+ _Note_: In case you want a single file with all patterns you can create a section all and put in all patterns beneath it. For example refer below
+  ```
+  [all]
+  ; To check when the NAC service is restarted
+  "Service Restarted" = "Root WebApplicationContext"
+  ERROR=ERROR
+  "ORA ERROR"="ORA-30036"
+  ```  
+---  
+## Self Documented INI
+To make the INI files self documented, which can be used for sharing knowledge among workers you can follow a practice of mentioning KB's links you came across within INI file (using comment syntax of INI i.e. ';') for specific error patterns. The user referring your INI file can refer those KB directly. For example refer below
+```
+[ALL]
+; https://knowledge.broadcom.com/external/article?articleId=223266
+"node stopped"=".*2021-08-15.*gsi_server_run.*\| GSI server stopping.*"
+```
+---  
 ## Troubleshooting
 
  ### Windows
  - 'rg' is not recognized as an internal or external command : The rg.exe is not configured in PATH.
-
+---  
 ## Report an Issue
 - [rg_parser_issues](https://github.com/sjainproductivity/rg_parser/issues)
