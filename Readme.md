@@ -87,7 +87,7 @@ $python -c/--config CONFIG_FILE_NAME.ini
     $analysis.sh SEARCH_FOLDER OUTPUT_DIR
 ```
 ---  
-![Alt Text](.\rg_parser.gif)
+![Setup and Usage of rg_parser](rg_parser.gif)
 
 ---  
 ## Search Pattern
