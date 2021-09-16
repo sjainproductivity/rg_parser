@@ -87,7 +87,7 @@ def __build_script(config):
     shell_cmds = ['SEARCH_DIRECTORY=""\n', 'OUTPUT_DIRECTORY=""\n']
 
     invocations = ["if [ \"$1\" ]\n",
-                   "then\n\tif [ \"$2\" ]\n\tthen\n\t\tSEARCH_DIRECTORY=\"$1\"\n\t\tOUTPUT_DIRECTORY=\"$1\"\n\t\tECHO 'SEARCH DIRECTORY: \"$SEARCH_DIRECTORY\"'\n\tECHO 'OUTPUT DIRECTORY: \"$OUTPUT_DIRECTORY\"'\n"]
+                   "then\n\tif [ \"$2\" ]\n\tthen\n\t\tSEARCH_DIRECTORY=\"$1\"\n\t\tOUTPUT_DIRECTORY=\"$2\"\n\t\tECHO 'SEARCH DIRECTORY: \"$SEARCH_DIRECTORY\"'\n\tECHO 'OUTPUT DIRECTORY: \"$OUTPUT_DIRECTORY\"'\n"]
     config.remove_section('default')
 
     for search_section in config.sections():
@@ -107,14 +107,14 @@ def __build_script(config):
                 'echo "Searching {} OUTPUT- {}"'.format(echo_out, out_file))
             shell_cmds.append("\n")
             shell_cmds.append(
-                'echo "{}" >> "$OUTPUT_DIRECTORY\{}"'.format(echo_out, out_file))
+                'echo "{}" >> "$OUTPUT_DIRECTORY/{}"'.format(echo_out, out_file))
             shell_cmds.append("\n")
             command = "rg "
             if match_count:
                 shell_cmds.append(
                     "count=$(rg -c -w '{}' -g '{}' \"$SEARCH_DIRECTORY\" |wc -l)".format(value, search_filter))
                 shell_cmds.append("\n")
-                shell_cmds.append('echo "Total Matches for {} ${} >> "$OUTPUT_DIRECTORY\{}" '.format(
+                shell_cmds.append('echo "Total Matches for {} ${} >> "$OUTPUT_DIRECTORY/{}" '.format(
                     value, "count", out_file))
                 shell_cmds.append("\n")
             if ignore_case:
@@ -123,7 +123,7 @@ def __build_script(config):
                 command += "-w '{}' ".format(value)
             if only_files:
                 command += "-l "
-            command += "-g '{}' \"$SEARCH_DIRECTORY\" >> \"$OUTPUT_DIRECTORY\{}\"".format(
+            command += "-g '{}' \"$SEARCH_DIRECTORY\" >> \"$OUTPUT_DIRECTORY/{}\"".format(
                 search_filter, out_file)
             command += "\n}\n"
             shell_cmds.append(command)
@@ -239,6 +239,8 @@ if __name__ == "__main__":
             if "windows" in os:
                 __build_script_win(config, os)
             elif "linux" in os:
+                __build_script(config, os)
+            elif "darwin" in os:
                 __build_script(config, os)
             else:
                 print("Platform {} not supported.", platform.system())
