@@ -116,7 +116,6 @@ The INI file contains script sections and user defined sections. The script will
 To make the INI files self documented, which can be used for sharing knowledge among workers you can follow a practice of mentioning KB's links you came across within INI file (using comment syntax of INI i.e. ';') for specific error patterns. The user referring your INI file can refer those KB directly. For example refer below
 ```
 [ALL]
-; https://knowledge.broadcom.com/external/article?articleId=223266
 "node stopped"=".*2021-08-15.*gsi_server_run.*\| GSI server stopping.*"
 ```
 ---  
